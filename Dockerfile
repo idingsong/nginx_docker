@@ -37,7 +37,7 @@ ADD supervisord.conf /etc/supervisord.conf
 
 #set to start automatically - supervisord, nginx and mysql
 RUN chkconfig nginx on
-RUN chkconfig supervisord on
+#RUN chkconfig supervisord on
 
 ADD scripts/run.sh /run.sh
 
