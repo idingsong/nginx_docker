@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e -x
 echo "starting supervisor in foreground"
-supervisord -n
+supervisord -n -c /etc/supervisord.conf
