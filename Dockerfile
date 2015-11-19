@@ -34,6 +34,7 @@ RUN easy_install supervisor
 
 # ADD supervisord config with hhvm setup
 ADD supervisord.conf /etc/supervisord.conf
+RUN mkdir /var/log/supervisor && touch /var/log/supervisor/supervisord.log
 
 #set to start automatically - supervisord, nginx and mysql
 RUN chkconfig nginx on
