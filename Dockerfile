@@ -18,7 +18,7 @@ RUN ["yum", "-y", "install", "nginx", "php", "php-mysql", "php-devel", "php-gd",
 RUN mkdir -p /var/www/html && chmod a+r /var/www/html
 
 #Add index.php
-ADD index.php /var/www/html
+ADD index.php /var/www/html/index.php
 
 #Setup hhvm - add config for hhvm
 ADD config.hdf /etc/hhvm/config.hdf 
