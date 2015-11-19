@@ -28,6 +28,10 @@ RUN service hhvm restart
 # ADD Nginx config
 ADD nginx.conf /etc/nginx/conf.d/default.conf
 
+RUN yum install -y python-setuptools
+
+RUN easy_install supervisor
+
 # ADD supervisord config with hhvm setup
 ADD supervisord.conf /etc/supervisord.conf
 
