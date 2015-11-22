@@ -24,6 +24,8 @@ RUN mkdir -p /var/www/html && chmod a+r /var/www/html
 #ADD ThinkPHP
 COPY MyThinkPHP /var/www/html
 
+RUN chown -R nginx:nginx /var/www/html/Application
+
 # ADD Php-fpm config
 ADD www.conf /etc/php-fpm.d/www.conf
 
