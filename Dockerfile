@@ -19,12 +19,13 @@ RUN ["yum", "-y", "install", "nginx", "php","php-fpm", "php-mysql", "php-devel",
 RUN mkdir -p /var/www/html && chmod a+r /var/www/html
 
 #Add index.php
-#ADD index.php /var/www/html/index.php
+ADD index.php /var/www/html/index.php
 
 #ADD ThinkPHP
-COPY MyThinkPHP /var/www/html
+RUN mkdir -p /var/www/thinkphp
+COPY MyThinkPHP /var/www/thinkphp
 
-RUN chown -R nginx:nginx /var/www/html/Application
+RUN mkdir /var/www/html/Application && chown -R nginx:nginx /var/www/html/Application
 
 # ADD Php-fpm config
 ADD www.conf /etc/php-fpm.d/www.conf
