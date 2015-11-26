@@ -1,6 +1,6 @@
 # DOCKER-VERSION 1.0.0
 
-FROM    centos
+FROM    centos:centos6
 
 MAINTAINER szmoto, szmoto@vip.qq.com
 
