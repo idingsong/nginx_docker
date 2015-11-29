@@ -10,7 +10,7 @@ MAINTAINER szmoto, szmoto@vip.qq.com
 # Install supervisor
 #RUN yum install -y python-meld3
 # Install Nginx repo
-RUN yum install -y http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+RUN yum install -y http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
 
 #install nginx, php, mysql, php-fpm
 RUN ["yum", "-y", "install", "nginx", "php","php-fpm", "php-mysql", "php-devel", "php-gd", "php-pecl-memcache", "php-pspell", "php-snmp", "php-xmlrpc", "php-xml","ssh"]
