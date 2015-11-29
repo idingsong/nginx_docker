@@ -36,7 +36,7 @@ ADD nginx.conf /etc/nginx/conf.d/default.conf
 #ADD sshd key
 ADD authorized_keys ~/.ssh/authorized_keys
 
-RUN yum install -y python-setuptools && yum clean
+RUN yum install -y python-setuptools && yum clean all
 
 RUN easy_install supervisor
 
