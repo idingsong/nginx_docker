@@ -22,7 +22,7 @@ RUN mkdir -p /var/www/html && chmod a+r /var/www/html
 ADD index.php /var/www/html/index.php
 
 #ADD ThinkPHP SSHD
-RUN mkdir -p /var/www/thinkphp && mkdir -p ~/.ssh
+RUN mkdir -p /var/www/thinkphp && mkdir -p /root/.ssh && mkdir -p /var/run/sshd
 COPY MyThinkPHP /var/www/thinkphp
 
 RUN mkdir /var/www/html/Application && chown -R nginx:nginx /var/www/html/Application
@@ -34,7 +34,9 @@ ADD www.conf /etc/php-fpm.d/www.conf
 ADD nginx.conf /etc/nginx/conf.d/default.conf
 
 #ADD sshd key
-ADD authorized_keys ~/.ssh/authorized_keys
+ADD authorized_keys /root/.ssh/authorized_keys
+
+RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_rsa_key && ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_ecdsa_key && ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_ed25519_key
 
 RUN yum install -y python-setuptools && yum clean all
 
