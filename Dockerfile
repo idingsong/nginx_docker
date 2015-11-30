@@ -22,10 +22,10 @@ RUN mkdir -p /var/www/html && chmod a+r /var/www/html
 ADD index.php /var/www/html/index.php
 
 #ADD ThinkPHP && SSHD
-RUN mkdir -p /var/www/thinkphp && mkdir -p /root/.ssh
-COPY MyThinkPHP /var/www/thinkphp
+RUN mkdir -p /var/www/{ThinkPHP,Apps,html/Public} && mkdir -p /root/.ssh
+COPY MyThinkPHP/ThinkPHP /var/www/ThinkPHP
 
-RUN mkdir /var/www/html/Application && chown -R nginx:nginx /var/www/html/Application
+RUN chown -R nginx:nginx /var/www/{ThinkPHP,Apps,html/Public}
 
 # ADD Php-fpm config
 ADD www.conf /etc/php-fpm.d/www.conf
