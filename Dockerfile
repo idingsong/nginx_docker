@@ -55,12 +55,13 @@ RUN mkdir /var/log/supervisor && touch /var/log/supervisor/supervisord.log
 #RUN chkconfig nginx on
 #RUN chkconfig supervisord on
 
-VOLUME ["/var/www"]
+
 
 ADD scripts/run.sh /run.sh
 
 RUN chmod a+x /run.sh 
 
+VOLUME ["/var/www"]
 
 EXPOSE 22 80
 #Start supervisord (which will start hhvm), nginx, mysql 
