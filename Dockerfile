@@ -12,6 +12,8 @@ MAINTAINER szmoto, szmoto@vip.qq.com
 # Install Nginx repo
 RUN yum install -y http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
 
+VOLUME ["/var/www/"]
+
 # Create folder for server and add index.php file to for nginx
 RUN mkdir -p /var/www/html && chmod a+r /var/www/html
 
@@ -53,7 +55,7 @@ RUN mkdir /var/log/supervisor && touch /var/log/supervisor/supervisord.log
 #RUN chkconfig nginx on
 #RUN chkconfig supervisord on
 
-VOLUME ["/var/www/"]
+
 
 ADD scripts/run.sh /run.sh
 
