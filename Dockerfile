@@ -12,14 +12,14 @@ MAINTAINER szmoto, szmoto@vip.qq.com
 # Install Nginx repo
 RUN yum install -y http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 
+VOLUME ["/var/www/"]
+
 # Create folder for server and add index.php file to for nginx
 RUN mkdir -p /var/www/html && chmod a+r /var/www/html
 
 
 #ADD ThinkPHP && SSHD
 RUN mkdir -p /var/www/{ThinkPHP,Apps,html/Public} && mkdir -p /root/.ssh && mkdir -p /var/run/sshd
-
-VOLUME ["/var/www/"]
 
 #install nginx, php, mysql, php-fpm
 RUN ["yum", "-y", "install", "nginx", "php","php-fpm", "php-mysql", "php-devel", "php-gd", "php-pecl-memcache", "php-pspell", "php-snmp", "php-xmlrpc", "php-xml","openssh-server"]
