@@ -53,7 +53,7 @@ RUN mkdir /var/log/supervisor && touch /var/log/supervisor/supervisord.log
 #RUN chkconfig nginx on
 #RUN chkconfig supervisord on
 
-VOLUME ["/var/www/"]
+VOLUME ["/var/www/Apps","/var/www/html/Public"]
 
 ADD scripts/run.sh /run.sh
 
