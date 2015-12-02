@@ -60,7 +60,7 @@ ADD scripts/run.sh /run.sh
 
 RUN chmod a+x /run.sh 
 
-VOLUME ["/var/www"]
+VOLUME ["/var/www/Apps","/var/www/html/Public"]
 
 EXPOSE 22 80
 #Start supervisord (which will start hhvm), nginx, mysql 
